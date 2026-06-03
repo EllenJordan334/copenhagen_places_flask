@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="da">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restauranter i København</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: #d96a93;
+            color: #222;
+        }
+        h1 { margin-bottom: 0; }
+        .muted { color: #666; }
+        form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+            padding: 16px;
+            background: rgb(209, 22, 22);
+            border-radius: 12px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+        }
+        input, button {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #cde47a;
+            font-size: 14px;
+        }
+        button { cursor: pointer; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgb(82, 152, 198);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        th { background: #eee; }
+        a { color: #9eec97; }
+        .small { font-size: 13px; }
+    </style>
+</head>
+<body>
+    <h1>Restauranter/steder i København</h1>
+    <p class="muted">
+        Viser op til 300 resultater fra SQLite-databasen. Der findes {{ total_copenhagen }} Copenhagen/København-rækker i databasen.
+    </p>
+
+    <form method="get">
+        <input type="text" name="q" placeholder="Søg navn, køkken eller adresse" value="{{ search }}">
+        <input type="number" step="0.5" min="0" max="5" name="min_rating" placeholder="Min rating fx 4" value="{{ min_rating }}">
+        <button type="submit">Søg</button>
+        <a href="/" style="align-self:center;">Nulstil</a>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Rating</th>
+                <th>Pris</th>
+                <th>Adresse</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in restaurants %}
+            <tr>
+                <td><strong>{{ r.restaurant_name or "Ukendt navn" }}</strong><br><span class="small muted">{{ r.city }}, {{ r.country }}</span></td>
+                <td>{{ r.avg_rating or "-" }}<br><span class="small muted">{{ r.total_reviews_count or 0 }} reviews</span></td>
+                <td>{{ r.price_level or "-" }}</td>
+                <td>{{ r.cuisines or "-" }}</td>
+                <td>{{ r.address or "-" }}</td>
+                <td>
+                    {% if r.restaurant_link %}
+                        <a href="{{ r.restaurant_link }}" target="_blank">TripAdvisor</a>
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">Ingen resultater fundet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
