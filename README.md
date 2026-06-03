@@ -32,11 +32,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-På Windows:
-
-```bash
-.venv\Scripts\activate
-```
 
 ## 3. Læg datasættet ind
 
