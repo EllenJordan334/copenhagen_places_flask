@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ## 3. Læg datasættet ind
 
-Nu skal man downloade CSV-filen fra Kaggle/Absalon og læg den her:
+Nu skal man downloade CSV-filen
 
 ```text
 data/tripadvisor_european_restaurants.csv
