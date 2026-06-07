@@ -102,3 +102,7 @@ Der er også et simpelt JSON endpoint:
 - flask
 - sqlite3 (built-in)
 
+## E/R diagram
+Vores database består af en tabel, restauranter, som importeres fra CSV-filen.
+tabellen indeholder alle attributer som tekstfelter, der er derfor ikke nogle relationer mellem entitterter, derefor består vores E/R diagram af en entitet uden relationer.
+
