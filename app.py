@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 import sqlite3
 from flask import Flask, render_template, request
@@ -21,6 +22,8 @@ def get_db_connection():
 @app.route("/")
 def index():
     search = request.args.get("q", "").strip()
+    if search and not re.match(r"^[a-zA-ZæøåÆØÅ0-9\s\-']+$", search):
+        search = ""
     min_rating = request.args.get("min_rating", "").strip()
 
     # SQL er brugt her. Vi vælger restaurants/steder i København, Danmark.
