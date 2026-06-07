@@ -55,7 +55,8 @@ restaurants.db
 ```
 
 ## 5. Start Flask-appen
-
+kan køres ved kommandoen python app.py
+eller 
 ```bash
 flask --app app run --debug
 ```
@@ -71,7 +72,7 @@ Vi bruger SQL i `app.py` som her:
 
 ```sql
 SELECT restaurant_name, city, country, address, avg_rating,
-       total_reviews_count, price_level, cuisines, restaurant_link
+       total_reviews_count, price_level
 FROM restaurants
 WHERE lower(country) = 'denmark'
   AND (
