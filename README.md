@@ -67,7 +67,7 @@ http://127.0.0.1:5000
 ```
 
 
-Vi bruger SQL i `app.py`, især her:
+Vi bruger SQL i `app.py` som her:
 
 ```sql
 SELECT restaurant_name, city, country, address, avg_rating,
