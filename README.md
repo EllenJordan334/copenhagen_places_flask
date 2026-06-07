@@ -15,7 +15,6 @@ Appen gør tre ting:
 Restauranter i København/
 ├── app.py
 ├── import_data.py
-├── requirements.txt
 ├── restaurants.db              
 ├── data/
 │   └── tripadvisor_european_restaurants.csv
