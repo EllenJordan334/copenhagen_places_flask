@@ -1,7 +1,7 @@
 
 # Restauranter i København
+Vi har lavet en webapp, hvor den viser alle restauranter i københavn som er i datasættet fra: https://www.kaggle.com/datasets/stefanoleone992/tripadvisor-european-restaurants. hentet fra kaggle.com, på vores web app kan man søge efter restauranter og finde ud af hvilke adresse de ligger på i københavn, hvad deres pris niveau er og deres ratings.
 
-Starterprojekt til TripAdvisor European Restaurants-datasættet.
 
 Appen gør tre ting:
 
