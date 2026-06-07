@@ -1,13 +1,3 @@
-"""
-Import TripAdvisor European restaurants CSV into SQLite.
-
-Put the CSV here:
-    data/tripadvisor_european_restaurants.csv
-
-Then run:
-    python import_data.py
-"""
-
 from pathlib import Path
 import sqlite3
 import pandas as pd
@@ -18,7 +8,7 @@ DB_PATH = BASE_DIR / "restaurants.db"
 TABLE_NAME = "restaurants"
 
 # Keep the project small and relevant for the web app.
-# If some columns do not exist in your CSV, they are skipped automatically.
+# If some columns do not exist in CSV, they are skipped automatically.
 WANTED_COLUMNS = [
     "restaurant_name",
     "restaurant_link",
@@ -74,7 +64,7 @@ def import_csv() -> None:
         if col in df.columns:
             df[col] = df[col].fillna("")
 
-    # Optional: remove exact duplicate restaurant links if the column exists.
+    #remove exact duplicate restaurant links if the column exists.
     if "restaurant_link" in df.columns:
         df = df.drop_duplicates(subset=["restaurant_link"])
 
