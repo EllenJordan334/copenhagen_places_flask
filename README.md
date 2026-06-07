@@ -1,4 +1,5 @@
-# Copenhagen Places Flask App
+
+# Restauranter i København
 
 Starterprojekt til TripAdvisor European Restaurants-datasættet.
 
@@ -6,16 +7,16 @@ Appen gør tre ting:
 
 1. Først læser CSV-filen med pandas.
 2. Derefter importerer relevante kolonner til SQLite.
-3. Viser alle restauranter/steder i København via en Flask web app.
+3. Viser alle restauranter/steder i København via Flask web app.
 
 ## 1. Projektstruktur
 
 ```text
-copenhagen_places_flask/
+Restauranter i København/
 ├── app.py
 ├── import_data.py
 ├── requirements.txt
-├── restaurants.db              # oprettes automatisk
+├── restaurants.db              
 ├── data/
 │   └── tripadvisor_european_restaurants.csv
 └── templates/
@@ -34,14 +35,15 @@ pip install -r requirements.txt
 
 
 ## 3. Læg datasættet ind
+vi har hentet datasættet fra kaggle
+link: https://www.kaggle.com/datasets/stefanoleone992/tripadvisor-european-restaurants
+der indefra downloades det og tilføjes til mappen data.
 
-Nu skal man downloade CSV-filen
+downloade CSV-filen
 
 ```text
 data/tripadvisor_european_restaurants.csv
 ```
-
-Det er vigtigt at filnavnet matcher præcist, ellers kan import-scriptet ikke finde den.
 
 ## 4. Importér data til SQLite
 
@@ -67,7 +69,6 @@ Nu, kan man åbne siden i browseren:
 http://127.0.0.1:5000
 ```
 
-## 6. Hvor bruges SQL?
 
 Vi bruger SQL i `app.py`, især her:
 
@@ -95,4 +96,11 @@ Der er også et simpelt JSON endpoint:
 ```text
 /api/copenhagen
 ```
+
+## Requirements
+
+- Python 3.10+
+- pandas
+- flask
+- sqlite3 (built-in)
 
