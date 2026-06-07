@@ -33,7 +33,6 @@ def index():
             avg_rating,
             total_reviews_count,
             price_level,
-            restaurant_link,
             latitude,
             longitude
         FROM restaurants
@@ -47,7 +46,8 @@ def index():
             )
     """
     params = []
-#cxgh
+
+
     if search:
         sql += """
             AND (
@@ -56,7 +56,7 @@ def index():
             )
         """
         like_value = f"%{search.lower()}%"
-        params.extend([like_value, like_value, like_value])
+        params.extend([like_value, like_value])
 
     if min_rating:
         try:
@@ -107,8 +107,7 @@ def api_copenhagen():
         rows = conn.execute(
             """
             SELECT restaurant_name, city, country, address, avg_rating,
-                   total_reviews_count, price_level,
-                   restaurant_link, latitude, longitude
+                   total_reviews_count, price_level, latitude, longitude
             FROM restaurants
             WHERE lower(country) = 'denmark'
               AND (
