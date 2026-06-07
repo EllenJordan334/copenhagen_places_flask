@@ -35,6 +35,7 @@ pip install -r requirements.txt
 
 
 ## 3. Læg datasættet ind
+datasættet er ikke indkluderet i denne reseptprie da filen var for stor.
 vi har hentet datasættet fra kaggle
 link: https://www.kaggle.com/datasets/stefanoleone992/tripadvisor-european-restaurants
 Det skal downloades manuelt fra Kaggle og placeres i mappen `data/` som:
