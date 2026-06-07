@@ -37,13 +37,9 @@ pip install -r requirements.txt
 ## 3. Læg datasættet ind
 vi har hentet datasættet fra kaggle
 link: https://www.kaggle.com/datasets/stefanoleone992/tripadvisor-european-restaurants
-der indefra downloades det og tilføjes til mappen data.
-
-downloade CSV-filen
-
-```text
+Det skal downloades manuelt fra Kaggle og placeres i mappen `data/` som:
 data/tripadvisor_european_restaurants.csv
-```
+
 
 ## 4. Importér data til SQLite
 
